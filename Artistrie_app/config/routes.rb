@@ -4,12 +4,19 @@ Rails.application.routes.draw do
 
   root to: 'default#index'
 
+  namespace :api, defaults: {format: 'json'} do
+    resources :pieces, only: [:index, :show, :create, :destroy]
+  end
+
   resources :competitions
 
   resources :users do
     resources :pieces
   end
-
+    # user_piece 
+  get  'api/pieces/:id' => 'pieces#show'
+  
+  # contact page  
   get '/contact' => 'default#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.

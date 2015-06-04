@@ -1,3 +1,4 @@
 class Piece < ActiveRecord::Base
-	belongs_to :user, :comp
+	belongs_to :user 
+	# :comp
 end
