@@ -1,29 +1,87 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-static-top" role="navigation"> 
+      <div class="container">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+              <a id="homeLink" class="navbar-brand" href="/">Artistrie</a>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="/contact">Contact</a>
+                  </li>
+                  <li>
+                      <a href="/competitions">Artist Competitions</a>
+                  </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/users/sign_in">Login</a></li>
+                <li class="active"><a href="/users/sign_up">Sign Up</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+          <h4>What type of user are you?</h4>
+          <div class="field" required>
+            <%= f.radio_button :user_type, "artist" %> I will submit art pieces</br>
+            <%= f.radio_button :user_type, "user" %> I will not submit art pieces
+          </div>
+        </br>
+          <div class="field">
+            <%= f.label :username, "Username" %>
+          </div>
+          <div>
+            <%= f.text_field :username, autofocus: true %>
+          </div>  
+          <br>
+          <div class="field">
+            <%= f.label :email %>
+          </div>
+          <div>
+            <%= f.email_field :email %>
+          </div>
+          <br>
+          <div class="field">
+            <%= f.label :password %>
+            <% if @validatable %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+          </div>
+          <div>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+          <br>
+          <div class="field">
+            <%= f.label :password_confirmation %>
+          </div>
+          <div>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+          <br>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
+</html>
