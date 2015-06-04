@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
+
+
+//= require angular-app/app
+//= require_tree ./angular-app/controllers
+
 //= require bootstrap-sprockets
 //= require_tree .
