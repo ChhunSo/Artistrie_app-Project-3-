@@ -1,4 +1,4 @@
-angular.module('Artistrie')
+angular.module('ArtistrieApp')
 	.factory('pieces',[function(){
 
 		var pieces= [

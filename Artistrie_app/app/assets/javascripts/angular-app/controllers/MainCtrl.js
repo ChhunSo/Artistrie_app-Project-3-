@@ -1,16 +1,18 @@
-angular.module('ArtistrieApp')
+// angular.module('ArtistrieApp')
 
-.controller('ExampleCtrl', ['$scope',function($scope){
-	console.log('ExampleCtrl running');
-	$scope.exampleValue= 'Hello angular is running';
-}])
+// // .controller('ExampleCtrl', ['$scope',function($scope){
+// // 	console.log('ExampleCtrl running');
+// // 	$scope.exampleValue= 'Hello angular is running';
+// // }])
 
-.controller('PieceShowCtrl',['$scope','$http','pieces', function($scope,$http, pieces){
-	$scope.pieces = $http.get('/api/pieces')
-	.success(function(data){
-		$scope.pieces=data;
-	})
-	.error(function(data){
-		console.log("error"+ data)
-	})
-}]);
+// // .controller('PieceCtrl',['$scope','$http','pieces', function($scope,$http, pieces){
+// // 	$http.get('/api/pieces')
+// // 	.success(function(data){
+// // 		console.log(data);
+// // 		$scope.pieces = data;
+
+// // 	})
+// // 	.error(function(data){
+// // 		console.log("error"+ data)
+// // 	})
+// // }]);
