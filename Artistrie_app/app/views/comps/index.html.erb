@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Competitions</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation"> 
+      <div class="container">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+              <a id="homeLink" class="navbar-brand" href="/">Artistrie</a>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="/contact">Contact</a>
+                  </li>
+                  <li class="active">
+                      <a href="/competitions">Artist Competitions</a>
+                  </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <% if @user %>
+                      <li><a href="/users/<%= @user.id %>"><%= @user.username %>'s Profile</a></li>
+                      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+    <!--        if no logged in user, show these menu items
+     -->          <% else %>
+                      <li><a href="/users/sign_in">Login</a></li>
+                      <li><a href="/users/sign_up">Sign Up</a></li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+  </nav>
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Welcome to the Competition Section </h1>
+        <h2>Here, artists can submit their work for user-chosen themes.  Vote for your favorites, share on Twitter and Facebook; we tally the votes at the end of the competition period and announce which artist has won!</h2>
+			</div>
+		</div>
+	</div>
+  <div class=container>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3 text-center">
+        <h2>Here's a list of current and past competitions:</h2>
+        <ul>
+        <% @competitions.each do |c| %>
+          <li>
+            <h4><a href="/competitions/<%= c.id %>"><%= c.theme %></a></h4>
+            <p>Start: <%= c.contest_start %></br>
+              End: <%= c.contest_end %></p>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
