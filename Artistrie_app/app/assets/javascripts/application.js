@@ -13,11 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 
+<<<<<<< HEAD
 //= require angular
 //= require angular-rails-templates
 
 //= require angular-app/app
 //= require_tree ./angular-app/modules
+=======
+
+
+//= require angular-app/app
+>>>>>>> 279a06922750c611061e5dccbbee6e5fd30f3627
 //= require_tree ./angular-app/controllers
 
 //= require bootstrap-sprockets
